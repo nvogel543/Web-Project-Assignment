@@ -19,7 +19,15 @@
             text-decoration: none;
             font-weight:800;
         }
+
+        textarea {
+            border-width: 5px!important;
+            border-color: #000000!important;
+            background-color: #FDBE0D!important;
+            font-weight: 700!important;
+        }
         </style>
+        <!--Old text area style: font-size: 50px!important; font-weight: 750!important;-->
 
         <title>Add a Question</title>
     </head>
@@ -44,7 +52,29 @@
     </div>
 </nav>
 <body style="background-color:#D86000; text-align: left;">
-    <h1 style = "color: #000000; font-size:40px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;">
-        Add a Question:
+    <h1 style = "color: #000000; font-size:60px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;">
+        <u>Add a Question:</u>
     </h1>
+        <div class="Question Form">
+            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <label for="questionArea" style="font-size: 40px;">Enter the Question:</label>
+                <textarea class="form-control" id="questionArea" rows="1"></textarea>
+            </div>
+            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <label for="AnswerArea" style="font-size: 40px;">Enter the Answer:</label>
+                <textarea class="form-control" id="AnswerArea" rows="1"></textarea>
+            </div>
+            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <label for="wrongAnswerArea1" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                <textarea class="form-control" id="wrongAnswerArea1" rows="1"></textarea>
+            </div>
+            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <label for="wrongAnswerArea2" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                <textarea class="form-control" id="wrongAnswerArea2" rows="1"></textarea>
+            </div>
+            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <label for="wrongAnswerArea3" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                <textarea class="form-control" id="wrongAnswerArea3" rows="1"></textarea>
+            </div>
+        </div>
 </html>
