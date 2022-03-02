@@ -8,7 +8,13 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
 
+        <script src="./AddQuestion.js"> </script>
+
         <style type="text/css">
+        body{
+            background-color:#D86000;
+            text-align: left;
+        }
         a {
             color:#800505;
             font-weight:750;
@@ -18,6 +24,12 @@
             color: #800505;
             text-decoration: none;
             font-weight:800;
+        }
+
+        input:hover {
+            color: #800505!important;
+            text-decoration: none!important;
+            font-weight:800!important;
         }
 
         textarea {
@@ -31,67 +43,87 @@
 
         <title>Add a Question</title>
     </head>
-</head>
-<nav class="container-fluid" style = "font-size:50px; text-align: center;">
-    <div class="row">
-        <!--Color Scheme: FA8000-eye hurting background color, better one-#d62e00 FDBE0D E35B0B FD430D 800505 #400202 E3950B
-        #FD430D- eye hurting text background #321000-original description text color
-        D86000-->
-        <div class="col-12 col-xs-12 col-md-6 col-lg-4" style="background-color: #FDBE0D; border-color: #000000; border-width: 5px; 
-        border-style:solid; border-top-style: none;">
-            <a href="Topics.html"> Trivia Topics </a>
-        </div>
-        <div class="col-12 col-xs-12 col-md-6 col-lg-4" style="background-color: #FA8000; border-color: #000000; border-width: 5px; 
-        border-style:solid; border-left-style: none; border-top-style: none;">
-            <a href="Leaderboard.html"> Leaderboard </a>
-        </div>
-        <div class="col-12 col-xs-12 col-lg-4" style="background-color: #FD430D; border-color: #000000; border-width: 5px; 
-        border-style:solid; border-left-style: none; border-top-style: none;">
-            <a href="About.html"> About </a>
-        </div>
-    </div>
-</nav>
-<body style="background-color:#D86000; text-align: left;">
-    <h1 style = "color: #000000; font-size:60px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;">
-        <u>Add a Question (Admin Only):</u>
-    </h1>
-        <div class="Question Form">
-            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label for="questionArea" style="font-size: 40px;">Enter the Question:</label>
-                <textarea class="form-control" id="questionArea" rows="1"></textarea>
-            </div>
-            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label for="AnswerArea" style="font-size: 40px;">Enter the Answer:</label>
-                <textarea class="form-control" id="AnswerArea" rows="1"></textarea>
-            </div>
-            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label for="wrongAnswerArea1" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                <textarea class="form-control" id="wrongAnswerArea1" rows="1"></textarea>
-            </div>
-            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label for="wrongAnswerArea2" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                <textarea class="form-control" id="wrongAnswerArea2" rows="1"></textarea>
-            </div>
-            <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label for="wrongAnswerArea3" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                <textarea class="form-control" id="wrongAnswerArea3" rows="1"></textarea>
-            </div>
+    <body>
+        <nav class="container-fluid" style = "font-size:50px; text-align: center;">
             <div class="row">
-                <div class="col-12 col-xs-1 col-s-1 col-lg-1">
-
+                <!--Color Scheme: FA8000-eye hurting background color, better one-#d62e00 FDBE0D E35B0B FD430D 800505 #400202 E3950B
+                #FD430D- eye hurting text background #321000-original description text color D86000-->
+                <div class="col-12 col-xs-12 col-md-6 col-lg-4" style="background-color: #FDBE0D; border-color: #000000; border-width: 5px; 
+                border-style:solid; border-top-style: none;">
+                    <a href="Topics.html"> Trivia Topics </a>
                 </div>
+                <div class="col-12 col-xs-12 col-md-6 col-lg-4" style="background-color: #FA8000; border-color: #000000; border-width: 5px; 
+                border-style:solid; border-left-style: none; border-top-style: none;">
+                    <a href="Leaderboard.html"> Leaderboard </a>
+                </div>
+                <div class="col-12 col-xs-12 col-lg-4" style="background-color: #FD430D; border-color: #000000; border-width: 5px; 
+                border-style:solid; border-left-style: none; border-top-style: none;">
+                    <a href="About.html"> About </a>
+                </div>
+            </div>
+        </nav>
+        <div id = "QuestionForm">
+            <h1 style = "color: #000000; font-size:60px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;" id = "h1">
+                <u>Add a Question (Admin Only):</u>
+            </h1>
+            <form onsubmit="return false;">
+                <!--Didn't add character mins and maxs because I trust admins not to upload blank questions or entire movie scripts-->
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="questionArea" style="font-size: 40px;">Enter the Question:</label>
+                    <textarea class="form-control" id="questionArea" rows="1"></textarea>
+                </div>
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="AnswerArea" style="font-size: 40px;">Enter the Answer:</label>
+                    <textarea class="form-control" id="AnswerArea" rows="1"></textarea>
+                </div>
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="wrongAnswerArea1" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                    <textarea class="form-control" id="wrongAnswerArea1" rows="1"></textarea>
+                </div>
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="wrongAnswerArea2" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                    <textarea class="form-control" id="wrongAnswerArea2" rows="1"></textarea>
+                </div>
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="wrongAnswerArea3" style="font-size: 40px;">Enter a Wrong Answer:</label>
+                    <textarea class="form-control" id="wrongAnswerArea3" rows="1"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xs-1 col-s-1 col-lg-1"></div>
+                    <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-2" style = "color: #000000; font-size:25px; font-weight: 750;">
+                        <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; margin-top: 30px; 
+                        margin-bottom: 50px; font-size:50px;">
+                            <a href="Main Page.html"> Cancel </a>
+                        </button>
+                    </div>
+                    <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-4" style = "color: #000000; font-size:25px; font-weight: 750;">
+                        <input type = "submit" id ="submitButton" value = "Submit Question" style = "background-color: #FDBE0D; border-style:solid; border-width:10px; 
+                        border-color:#000000; margin-top: 30px; margin-bottom: 50px; font-size:50px; color:#800505; font-weight:750;" onclick="submitForm();">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id = "FormSubmitted" style = "display: none; text-align: center;">
+            <h1 style = "color: #000000; font-size:50px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;">
+                Question added successfully!
+            </h1>
+            <div class="row">
+                <div class="col-12 col-xs-1 col-s-1 col-lg-3"></div>
                 <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-2" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; margin-top: 30px; 
                     margin-bottom: 50px; font-size:50px;">
-                        <a href="Main Page.html"> Cancel </a>
+                        <a href="Main Page.html"> Return Home </a>
                     </button>
                 </div>
-                <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-4" style = "color: #000000; font-size:25px; font-weight: 750;">
+                <div class="col-12 col-xs-1 col-s-1 col-lg-2"></div>
+                <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-2" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; margin-top: 30px; 
                     margin-bottom: 50px; font-size:50px;">
-                        <a href="Main Page.html"> Submit Question </a>
+                        <a href="Add Question Form.html"> Add Another Question </a>
                     </button>
                 </div>
             </div>
         </div>
+        </body>
+
 </html>
