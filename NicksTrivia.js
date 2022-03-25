@@ -11,7 +11,6 @@ const server=app.listen(port,hostname,function(){
    console.log(`Server running in ${hostname}:${port}`);
 });
 
-//let QuestionsJSON = require('./Questions.json');
 let questions = require('./Questions.json').questions;
 
 app.get('/question',function(req,res,next){
