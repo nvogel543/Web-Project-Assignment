@@ -1,0 +1,12 @@
+{
+    "questions":[
+        { "_id":1, "Topic":"History", "Question": "What year did the American Revolutionary War Start?", "Answer":"1775", "WrongAnswer1":"1865", "WrongAnswer2":"1945", "WrongAnswer3":"1492"},
+        { "_id":2, "Topic":"Movies", "Question": "What car was used to time travel in the movie Back to the Future (1985)?", "Answer":"DeLorean", "WrongAnswer1":"Lamborghini", "WrongAnswer2":"Porsche", "WrongAnswer3":"Tesla"},
+        { "_id":3, "Topic":"Sports", "Question": "Who won Super Bowl 56?", "Answer":"Rams", "WrongAnswer1":"Bengals", "WrongAnswer2":"Patriots", "WrongAnswer3":"Buccaneers"},
+        { "_id":4, "Topic":"Geography", "Question": "What is the capital of California?", "Answer":"Sacramento", "WrongAnswer1":"Los Angeles", "WrongAnswer2":"Anaheim", "WrongAnswer3":"San Francisco"},
+        { "_id":5, "Topic":"Science", "Question": "What is the charge of an electron?", "Answer":"-1.6E-19 C", "WrongAnswer1":"-1.6E-11 C", "WrongAnswer2":"-8.9E9 C", "WrongAnswer3":"-3.5E4 C"},
+        { "_id":6, "Topic":"Literature", "Question": "Who wrote Frankenstein?", "Answer":"Mary Shelley", "WrongAnswer1":"George Orwell", "WrongAnswer2":"L. Ron Hubbard", "WrongAnswer3":"Stephen King"},
+        { "_id":7, "Topic":"History", "Question": "What year did the Byzantine Empire collapse?", "Answer":"1453", "WrongAnswer1":"1066", "WrongAnswer2":"867", "WrongAnswer3":"1303"},
+        { "_id":8, "Topic":"Movies", "Question": "Which of these actors was not in the movie Fight Club (1999)?", "Answer":"Leonardo DiCaprio", "WrongAnswer1":"Brad Pitt", "WrongAnswer2":"Edward Norton", "WrongAnswer3":"Meat Loaf"}
+    ]
+}
