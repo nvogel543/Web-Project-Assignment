@@ -66,27 +66,31 @@
             <h1 style = "color: #000000; font-size:60px; font-weight: 750; margin-top: 40px; margin-bottom: 40px;" id = "h1">
                 <u>Add a Question (Admin Only):</u>
             </h1>
-            <form onsubmit="return false;">
+            <form method="post"action="/question">
                 <!--Didn't add character mins and maxs because I trust admins not to upload blank questions or entire movie scripts-->
                 <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
+                    <label for="questionArea" style="font-size: 40px;">Enter the Topic:</label>
+                    <textarea class="form-control" id="topicArea" name="topicArea" rows="1"></textarea>
+                </div>
+                <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <label for="questionArea" style="font-size: 40px;">Enter the Question:</label>
-                    <textarea class="form-control" id="questionArea" rows="1"></textarea>
+                    <textarea class="form-control" id="questionArea" name="questionArea" rows="1"></textarea>
                 </div>
                 <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <label for="AnswerArea" style="font-size: 40px;">Enter the Answer:</label>
-                    <textarea class="form-control" id="AnswerArea" rows="1"></textarea>
+                    <textarea class="form-control" id="answerArea" name="answerArea" rows="1"></textarea>
                 </div>
                 <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <label for="wrongAnswerArea1" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                    <textarea class="form-control" id="wrongAnswerArea1" rows="1"></textarea>
+                    <textarea class="form-control" id="wrongAnswerArea1" name="wrongAnswerArea1" rows="1"></textarea>
                 </div>
                 <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <label for="wrongAnswerArea2" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                    <textarea class="form-control" id="wrongAnswerArea2" rows="1"></textarea>
+                    <textarea class="form-control" id="wrongAnswerArea2" name="wrongAnswerArea2" rows="1"></textarea>
                 </div>
                 <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                     <label for="wrongAnswerArea3" style="font-size: 40px;">Enter a Wrong Answer:</label>
-                    <textarea class="form-control" id="wrongAnswerArea3" rows="1"></textarea>
+                    <textarea class="form-control" id="wrongAnswerArea3" name="wrongAnswerArea3" rows="1"></textarea>
                 </div>
                 <div class="row">
                     <div class="col-12 col-xs-1 col-s-1 col-lg-1"></div>
