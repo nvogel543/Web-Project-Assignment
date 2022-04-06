@@ -37,6 +37,9 @@
         font-weight:600!important;
         
     }
+    .editButton:hover {
+        font-size:53px;
+    }
     </style>
 
     <title>Question List</title>
@@ -73,7 +76,7 @@
     </div>
     <div class="col-12 col-xs-12 col-md-12 col-lg-4">
         <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; font-size:50px;">
-            <a href="/deletequestion/11" onclick="return confirmDelete();">X</a>
+            <a href="/deletequestion/11" onclick="return confirmDelete();">✏️</a>
         </button>
     </div>
 </div>
@@ -92,6 +95,7 @@
         let response = await fetch('http://localhost:4000/question');
 
         questions = await response.json();
+        console.log("Element 0 ID is: " + questions[0]._id);
         
         let out = `
         <table class="table table-bordered">
@@ -113,11 +117,11 @@
                     <tr>
                     <td>
                         <div class="d-flex justify-content-between">
-                            <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; font-size:50px;">
+                            <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; font-size:50px; width:100px; height: 100px; border-right-width: 5px;">
+                                <a class = "editButton" href="/updatequestion/${questions[i]._id}">✏️</a>
+                            </button>
+                            <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; font-size:50px; width:100px; height: 100px; border-left-width: 5px;">
                                 <a href="/deletequestion/${questions[i]._id}" onclick="return confirmDelete();">X</a>
-                            </button> 
-                            <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; font-size:50px;">
-                                <a href="/updatequestion/${questions[i]._id}" onclick="return confirmDelete();">✏️</a>
                             </button>
                         <div>
                     </td>
