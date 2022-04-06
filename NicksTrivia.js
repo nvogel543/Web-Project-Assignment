@@ -16,10 +16,8 @@ const server=app.listen(port,hostname,function(){
    console.log(`Server running in ${hostname}:${port}`);
 });
 
-let questions = null;
-
 app.get('/question',function(req,res,next){
-    questions = require('./Questions.json').questions;
+    let questions = JSON.parse(fs.readFileSync("./Questions.json")).questions;
     res.status(200);
     res.send(questions);
     res.end();
@@ -54,3 +52,30 @@ app.get('/question',function(req,res,next){
     //console.log("New data added");
   });
 });
+
+app.get('/deletequestion/:id',function(req,res,next){
+  let questions = JSON.parse(fs.readFileSync("./Questions.json"));
+  let id = parseInt(req.params.id);
+  //console.log("Deleting Question " + id);
+  let pos = null;
+  for(let i=0; i<questions["questions"].length; i++){
+    if(questions["questions"][i]._id === id)
+    {
+      pos = i;
+      //console.log("Found Element " + pos);
+      break;
+    }
+  }
+  if(questions["questions"][pos]!=null)
+  {
+     questions["questions"].splice(pos,1);
+     fs.writeFile("Questions.json", JSON.stringify(questions), (err) => {
+      // Error checking
+      if (err) throw err;
+      //console.log("New data added");
+    });
+    //console.log("Deleted element " + pos);
+  }
+  res.redirect('../Question List.html');
+});
+
