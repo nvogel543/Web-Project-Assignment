@@ -112,16 +112,16 @@ app.get('/editquestion',function(req,res,next){
 app.get('/updatequestion/:id',function(req,res,next)
 {
   let id = parseInt(req.params.id);
-    let question = null
-    let questions = JSON.parse(fs.readFileSync("./Questions.json"))["questions"];
-    for(let i = 0; i <questions.length; i++)
+  let question = null
+  let questions = JSON.parse(fs.readFileSync("./Questions.json"))["questions"];
+  for(let i = 0; i <questions.length; i++)
+  {
+    if(questions[i]._id === id)
     {
-      if(questions[i]._id === id)
-      {
-        question = questions[i];
-        break;
-      }
+      question = questions[i];
+      break;
     }
+  }
   editing[0].editing = 1;
   editing[0]._id = question._id;
   editing[0].Topic = question.Topic;
