@@ -66,7 +66,6 @@
         </h1>
         <form id ="newOrUpdateForm"method="post"action="/question">
             <!--Didn't add character mins and maxs because I trust admins not to upload blank questions or entire movie scripts-->
-            <div id = "idInput"></div>
             <div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
                 <label id = "topicLabel" for="questionArea" style="font-size: 40px;">Enter the Topic:</label>
                 <textarea class="form-control" id="topicArea" name="topicArea" rows="1"></textarea>
@@ -111,20 +110,11 @@
             Question added successfully!
         </h1>
         <div class="row">
-            <!--<div class="col-12 col-xs-1 col-s-1 col-lg-3"></div>
-            <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-2" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; margin-top: 30px; 
-                margin-bottom: 50px; font-size:50px;">
-                    <a href="Main Page.html"> Return Home </a>
-                </button>
-            </div>-->
-            <!--<div class="col-12 col-xs-1 col-s-1 col-lg-2"></div>
-            <div class="col-12 col-xs-1 col-s-1 col-md-4 col-lg-2" style = "color: #000000; font-size:25px; font-weight: 750;">-->
+            
                 <button style = "background-color: #FDBE0D; border-style:solid; border-width:10px; border-color:#000000; margin-top: 30px; 
                 margin-bottom: 50px; font-size:50px;">
                     <a id ="addQuestionButton" href="Add Question Form.html"> Add Another Question </a>
                 </button>
-            <!--</div>-->
         </div>
         <div class="row">
             
@@ -149,17 +139,12 @@
         { 
             let response = await fetch('http://localhost:4000/editquestion');
             editing = await response.json();
-            //dumb = JSON.stringify(editing);
-            //let out = ` Element id is: ${editing[0].editing}`
-            
-            //document.getElementById('header1').innerHTML += out;
 
             console.log("Received: " + editing[0].editing);
-            //editing = parseInt(editing[0].editing);
             if(editing[0].editing === 1)
             {
                 console.log('Got True');
-                document.getElementById('header1').innerHTML =`<u>Editing Question:</u>`;
+                document.getElementById('header1').innerHTML =`<u>Editing Question ${editing[0]._id}:</u>`;
                 document.getElementById('topicLabel').innerHTML ='Topic:';
                 document.getElementById('questionLabel').innerHTML ='Question:';
                 document.getElementById('answerLabel').innerHTML ='Answer';
@@ -176,9 +161,6 @@
                 document.getElementById('submitHeader').innerHTML = 'Question edited successfully!';
                 document.getElementById('submitHeader').innerHTML = 'Question edited successfully!';
                 document.getElementById('addQuestionButton').innerHTML = 'Add a new question';
-                document.getElementById('idInput').innerHTML = `<div class="col-12 col-xs-12 col-md-12 col-lg-8" style = "color: #000000; font-size:25px; font-weight: 750;">
-                <label id = "idLabel" for="questionArea" style="font-size: 40px;">ID:</label>
-                <textarea class="form-control" id="idArea" name="idArea" rows="1">${editing[0]._id}</textarea></div>`;
             }
             else
             {
