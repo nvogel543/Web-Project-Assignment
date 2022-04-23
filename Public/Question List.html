@@ -90,7 +90,9 @@
         let response = await fetch('http://localhost:4000/question');
 
         questions = await response.json();
-        console.log("Element 0 ID is: " + questions[0]._id);
+        //console.log("Element 0 ID is: " + questions[0]._id);
+        console.log(JSON.stringify(questions));
+        //console.log(questions);
         
         let out = `
         <table class="table table-bordered">

@@ -1,22 +1,22 @@
-const dao = require('../model/QuestionDaoMem.js');
-exports.getAll = function(req,res,next)// Sends array of all questions
+//const dao = require('../model/QuestionDaoMem.js');
+const dao = require('../model/QuestionDaoMongo.js');
+exports.getAll = async function(req,res,next)// Sends array of all questions
 {
    res.status(200);
-   res.send(dao.readAll());
+   res.send(await dao.readAll());
    res.end();
 }
 
-exports.getById = function(req,res,next)//Sends a question corresponding to the given ID
+exports.getById = async function(req,res,next)//Sends a question corresponding to the given ID
 {
     res.status(200);
-    res.send(dao.read(parseInt(req.params.id)));
+    res.send(await dao.read(req.params.id));
     res.end();
 }
 
 exports.create = function(req,res,next)// Creates a question from the form
 {
     let newQuestion = {};
-    newQuestion._id = 0;
     newQuestion.Topic = req.body.topicArea;
     newQuestion.Question = req.body.questionArea;
     newQuestion.Answer = req.body.answerArea; 
@@ -29,7 +29,7 @@ exports.create = function(req,res,next)// Creates a question from the form
 exports.delete = function(req,res,next)// Deletes the question corresponding to the given ID
 {
     res.status(200);
-    let id = parseInt(req.params.id);
+    let id = req.params.id;
     dao.del(id);
     res.redirect('../Question List.html');
 }
@@ -44,7 +44,7 @@ exports.checkEdit = function(req,res,next)// Sends all editing information
 exports.update = function(req,res,next)// Indicate which question is being edited
 {
     res.status(200);
-    let id = parseInt(req.params.id);
+    let id = req.params.id;
     dao.setEdit(id);
     res.redirect('../Add Question Form.html');
 }
