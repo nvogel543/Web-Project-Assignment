@@ -1,4 +1,5 @@
 # Nick's Trivia
 
-* Run on localhost:4000
-* Start server with command: node NicksTriviaMongoServer.js
+* Type `NPM install`
+* Start server with command: `node NicksTriviaServer.js`
+* Type into browser: `localhost:4000/Main Page.html`
