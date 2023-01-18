@@ -46,11 +46,17 @@ exports.create = function(question)// Takes a question, gives it an ID, and save
 
 exports.pos = function(id)//Exported this so I could test it and get enough statement coverage
 {
+    //console.log("Looking for ID: " + id);
     for(let i=0; i< exports.questions["questions"].length; i++)
-        if(exports.questions["questions"][i]._id === id)
+    {
+        //console.log("Question id is: " + exports.questions["questions"][i]._id);
+        if(parseInt(exports.questions["questions"][i]._id) === parseInt(id))
         {
            return i;
         }
+    }
+    //console.log("Questions are: ");
+    //console.log(JSON.stringify(exports.questions["questions"]));
     return -1;
 }
 
@@ -98,7 +104,7 @@ exports.setEdit = function(id)// Indicates that a question is being edited and s
 {
     exports.parseQuestions();
     let index = exports.pos(id);
-    console.log("Got index: " + index);
+    //console.log("Got index: " + index);
     exports.editing[0].editing = 1;
     exports.editing[0]._id = exports.questions["questions"][index]._id;
     exports.editing[0].Topic = exports.questions["questions"][index].Topic;

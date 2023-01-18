@@ -1,5 +1,5 @@
-//const dao = require('../model/QuestionDaoMem.js');
-const dao = require('../model/QuestionDaoMongo.js');
+const dao = require('../model/QuestionDaoMem.js');
+//const dao = require('../model/QuestionDaoMongo.js');
 exports.getAll = async function(req,res,next)// Sends array of all questions
 {
    res.status(200);
